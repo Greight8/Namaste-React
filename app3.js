@@ -788,9 +788,11 @@ const CardBody = () => {
     <div className="card-body">
       <div className="search">Search</div>
       <div className="res-container">
-        <RestaurantCard resdata={resObj[0]} />
-        <RestaurantCard resdata={resObj[1]} />
-        <RestaurantCard resdata={resObj[2]} />
+        {
+          resObj.map((items) => {
+            return <RestaurantCard key={items.data.id} resdata={items} />
+          })
+        }
       </div>
     </div>
   )
