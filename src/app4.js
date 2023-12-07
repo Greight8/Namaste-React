@@ -5,7 +5,7 @@ import CardBody from "./components/CardBody";
 
 // 1) 1st component AppLayout :- here we will put all other components
 const AppLayout = () => {
-    console.log(<CardBody />);
+    // console.log(<CardBody />);
     return (
         <div className="app">
             <Header />

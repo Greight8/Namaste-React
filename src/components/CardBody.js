@@ -1,10 +1,16 @@
 import RestaurantCard from "./RestaurantCard";
 import resObj from "../utils/mockData"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const CardBody = () => {
     // 2) react variable
-    const [newResList, setNewResList] = useState(resObj)
+    const [newResList, setNewResList] = useState(resObj);
+
+    useEffect(()=>{
+        console.log("useeffect called");
+    },[])
+
+    console.log("card body rendered");
 
     return (
         <div className="card-body">
