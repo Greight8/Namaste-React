@@ -1,16 +1,28 @@
 import RestaurantCard from "./RestaurantCard";
-import resObj from "../utils/mockData"
 import { useEffect, useState } from "react";
+import Shimmer from "./Shimmer";
 
 const CardBody = () => {
-    // 2) react variable
-    const [newResList, setNewResList] = useState(resObj);
+    // 1) react variable
+    const [newResList, setNewResList] = useState([]);
 
-    useEffect(()=>{
-        console.log("useeffect called");
-    },[])
+    useEffect(() => {
+        fetchData()
+    }, [])
 
-    console.log("card body rendered");
+    const fetchData = async () => {
+        let url = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+
+        let response = await fetch(url);
+        let myData = await response.json();
+        console.log(myData);
+        setNewResList(myData.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    }
+
+    // 2) showing a shimmer before we render cards from api
+    if (newResList.length === 0) {
+        return <Shimmer />
+    }
 
     return (
         <div className="card-body">
@@ -26,7 +38,7 @@ const CardBody = () => {
             <div className="res-container">
                 {
                     newResList.map((items) => {
-                        return <RestaurantCard key={items.data.id} resdata={items} />
+                        return <RestaurantCard key={items.info.id} resdata={items} />
                     })
                 }
             </div>
