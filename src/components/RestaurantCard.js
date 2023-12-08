@@ -13,7 +13,7 @@ const RestaurantCard = (props) => {
 
             <h3>{name}</h3>
             <h3>{cuisines.join(", ")}</h3>
-            <h3>{costForTwo / 100} rs for two</h3>
+            <h3>{costForTwo}</h3>
             <h3>{avgRating} stars</h3>
             <h3>{deliveryTime} min</h3>
         </div>

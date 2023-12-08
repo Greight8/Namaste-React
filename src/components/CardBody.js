@@ -19,30 +19,28 @@ const CardBody = () => {
         setNewResList(myData.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
 
-    // 2) showing a shimmer before we render cards from api
-    if (newResList.length === 0) {
-        return <Shimmer />
-    }
+    // 2) using conditional rendering
 
-    return (
-        <div className="card-body">
-            <button className="filter-btn" onClick={() => {
-                const filteredRes = newResList.filter((items) => {
-                    return items.data.avgRating > 4
-                });
-                setNewResList(filteredRes);
-            }}>
-                top Restaurant
-            </button>
+    return newResList.length === 0 ? <Shimmer /> :
+        (
+            <div className="card-body">
+                <button className="filter-btn" onClick={() => {
+                    const filteredRes = newResList.filter((items) => {
+                        return items.info.avgRating > 4
+                    });
+                    setNewResList(filteredRes);
+                }}>
+                    top Restaurant
+                </button>
 
-            <div className="res-container">
-                {
-                    newResList.map((items) => {
-                        return <RestaurantCard key={items.info.id} resdata={items} />
-                    })
-                }
+                <div className="res-container">
+                    {
+                        newResList.map((items) => {
+                            return <RestaurantCard key={items.info.id} resdata={items} />
+                        })
+                    }
+                </div>
             </div>
-        </div>
-    )
+        )
 }
 export default CardBody;
