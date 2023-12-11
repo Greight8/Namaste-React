@@ -3,10 +3,9 @@ import { LOGO_URL } from "../utils/constants";
 
 const Header = () => {
     // let btnName = "login";
+    console.log("body component rendered");
 
     const [newBtnName, setNewBtnName] = useState("login");
-
-    console.log("body component rendered");
 
     return (
         <div className="header">
