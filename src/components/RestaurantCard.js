@@ -4,7 +4,9 @@ const RestaurantCard = (props) => {
     // console.log(props);
     const { resdata } = props;
 
-    const { cloudinaryImageId, name, cuisines, costForTwo, avgRating, deliveryTime } = resdata?.info;
+    const { cloudinaryImageId, name, cuisines, costForTwo, avgRating, sla } = resdata?.info;
+
+    // const { deliveryTime } = resdata?.info?.sla;
 
     return (
         <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
@@ -15,7 +17,7 @@ const RestaurantCard = (props) => {
             <h3>{cuisines.join(", ")}</h3>
             <h3>{costForTwo}</h3>
             <h3>{avgRating} stars</h3>
-            <h3>{deliveryTime} min</h3>
+            <h3>{sla?.slaString}</h3>
         </div>
     )
 }

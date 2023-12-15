@@ -10,18 +10,21 @@ const CardBody = () => {
 
     const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
+    const [searchText, setSearchText] = useState("")
+
     useEffect(() => {
         fetchData()
     }, [])
 
-    const [searchText, setSearchText] = useState("")
-
     const fetchData = async () => {
-        let url = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9351929&lng=77.62448069999999&page_type=DESKTOP_WEB_LISTING"
+        let url = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6805926&lng=77.4587239&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
 
         let response = await fetch(url);
         let myData = await response.json();
         // console.log(myData);
+
+        // console.log(myData.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info);
+
         setNewResList(myData.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
         setFilteredRestaurant(myData.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
