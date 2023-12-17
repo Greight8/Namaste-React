@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 
 const Header = () => {
@@ -6,6 +6,21 @@ const Header = () => {
     console.log("body component rendered");
 
     const [newBtnName, setNewBtnName] = useState("login");
+
+    // 1) without dependency array
+    // useEffect(() => {
+    //     console.log("useeffect is called");
+    // })
+
+    // 2) with empty dependency array
+    useEffect(() => {
+        console.log("useeffect is called");
+    }, []);
+
+    // 3)  dependency array with a dependency
+    // useEffect(() => {
+    //     console.log("useeffect is called");
+    // }, [newBtnName]);
 
     return (
         <div className="header">

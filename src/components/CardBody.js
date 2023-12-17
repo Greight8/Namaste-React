@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 
 const CardBody = () => {
-    console.log("cardBody rendered")
+    // console.log("cardBody rendered")
 
     // 1) react variable
     const [newResList, setNewResList] = useState([]);
