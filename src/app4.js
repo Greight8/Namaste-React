@@ -5,7 +5,7 @@ import CardBody from "./components/CardBody";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error"
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 
 // 1) 1st component AppLayout :- here we will put all other components
 const AppLayout = () => {
@@ -13,7 +13,7 @@ const AppLayout = () => {
     return (
         <div className="app">
             <Header />
-            <CardBody />
+            <Outlet />
         </div>
     )
 }
@@ -23,16 +23,23 @@ const appRouter = createBrowserRouter(
         {
             path: "/",
             element: <AppLayout />,
+            children:
+                [
+                    {
+                        path: "/",
+                        element: <CardBody />
+                    },
+                    {
+                        path: "/about",
+                        element: <About />
+                    },
+                    {
+                        path: "/contact",
+                        element: <Contact />
+                    },
+                ],
             errorElement: <Error />
-        },
-        {
-            path: "/about",
-            element: <About />
-        },
-        {
-            path: "/contact",
-            element: <Contact />
-        },
+        }
     ]
 )
 
