@@ -1,6 +1,7 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const CardBody = () => {
     // console.log("cardBody rendered")
@@ -21,7 +22,7 @@ const CardBody = () => {
 
         let response = await fetch(url);
         let myData = await response.json();
-        // console.log(myData);
+        console.log(myData);
 
         // console.log(myData.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info);
 
@@ -32,44 +33,45 @@ const CardBody = () => {
 
     // 2) using conditional rendering
 
-    return newResList.length === 0 ? <Shimmer /> :
-        (
-            <div className="card-body">
-                <div className="search">
+    return newResList.length == 0 ? <Shimmer /> : (
+        <div className="card-body">
+            <div className="search">
 
-                    <input className="search-box" type="text"
-                        onChange={(e) => {
-                            // console.log(e);
-                            setSearchText(e.target.value);
-                        }} value={searchText} />
+                <input className="search-box" type="text"
+                    onChange={(e) => {
+                        // console.log(e);
+                        setSearchText(e.target.value);
+                    }} value={searchText} />
 
-                    <button className="search-btn" onClick={() => {
-                        console.log(searchText);
-                        let filteredRes = newResList.filter((items) => {
-                            return items.info.name.includes(searchText)
-                        })
-                        console.log(filteredRes);
-                        setFilteredRestaurant(filteredRes);
-                    }}>Search</button>
-                </div>
-
-                <button className="filter-btn" onClick={() => {
-                    const filteredRes = newResList.filter((items) => {
-                        return items.info.avgRating > 4
-                    });
+                <button className="search-btn" onClick={() => {
+                    console.log(searchText);
+                    let filteredRes = newResList.filter((items) => {
+                        return items.info.name.includes(searchText)
+                    })
+                    console.log(filteredRes);
                     setFilteredRestaurant(filteredRes);
-                }}>
-                    top Restaurant 4 +
-                </button>
-
-                <div className="res-container">
-                    {
-                        filteredRestaurant.map((items) => {
-                            return <RestaurantCard key={items.info.id} resdata={items} />
-                        })
-                    }
-                </div>
+                }}>Search</button>
             </div>
-        )
+
+            <button className="filter-btn" onClick={() => {
+                const filteredRes = newResList.filter((items) => {
+                    return items.info.avgRating > 4
+                });
+                setFilteredRestaurant(filteredRes);
+            }}>
+                top Restaurant 4 +
+            </button>
+
+            <div className="res-container">
+                {
+                    filteredRestaurant.map((items) => {
+                        return <Link style={{ textDecoration: "none" }} to={"/restaurants/" + items.info.id} key={items.info.id}>
+                            <RestaurantCard resdata={items} />
+                        </Link>
+                    })
+                }
+            </div>
+        </div>
+    )
 }
 export default CardBody;

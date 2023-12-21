@@ -28,6 +28,11 @@ img {
     width: 200px;
     padding: 5px 5px;
     margin: 26px 61px;
+    text-decoration: none;
+}
+
+.res-card>h3 {
+    text-decoration: none;
 }
 
 .res-card:hover {
