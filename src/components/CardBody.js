@@ -1,5 +1,6 @@
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
+import { SWIGGY_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 
@@ -18,22 +19,21 @@ const CardBody = () => {
     }, [])
 
     const fetchData = async () => {
-        let url = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6805926&lng=77.4587239&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-
+        let url = SWIGGY_URL;
         let response = await fetch(url);
         let myData = await response.json();
         console.log(myData);
 
-        // console.log(myData.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info);
+        // console.log(myData.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info);
 
-        setNewResList(myData.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setNewResList(myData.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
-        setFilteredRestaurant(myData.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRestaurant(myData.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
 
     // 2) using conditional rendering
 
-    return newResList.length == 0 ? <Shimmer /> : (
+    return newResList.length === 0 ? <Shimmer /> : (
         <div className="card-body">
             <div className="search">
 
@@ -65,7 +65,7 @@ const CardBody = () => {
             <div className="res-container">
                 {
                     filteredRestaurant.map((items) => {
-                        return <Link style={{ textDecoration: "none" }} to={"/restaurants/" + items.info.id} key={items.info.id}>
+                        return <Link to={"/restaurants/" + items.info.id} key={items.info.id}>
                             <RestaurantCard resdata={items} />
                         </Link>
                     })

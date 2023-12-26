@@ -20,10 +20,10 @@ const RestaurantMenu = () => {
     const fetchMenu = async () => {
         // let url = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6805926&lng=77.4587239&restaurantId=340382&catalog_qa=undefined&submitAction=ENTER"
         // let url = `${MENU_URL}${resId}&submitAction=ENTER`;
-        // let url = { MENU_URL } + { resId }
+        let url = MENU_URL + resId + "&catalog_qa=undefined&submitAction=ENTER";
 
-        let response = await fetch(MENU_URL + resId + "&catalog_qa=undefined&submitAction=ENTER");
-        // let response = await fetch(url);
+        // let response = await fetch(MENU_URL + resId + "&catalog_qa=undefined&submitAction=ENTER");
+        let response = await fetch(url);
         let mydata = await response.json();
 
         console.log(mydata);
@@ -51,13 +51,16 @@ const RestaurantMenu = () => {
             <h2>itemCards[1]?.card?.info?.name}</h2>
             <h2>itemCards[2]?.card?.info?.name}</h2> */}
 
-            {itemCards.map((items) => {
-                return (
-                    <ul key={items.card?.info?.id}>
-                        <li>{items.card?.info?.name} - <b>Rs {(items.card?.info?.price) / 100 || (items.card?.info?.defaultPrice) / 100}</b></li>
-                    </ul>
-                )
-            })}
+            {
+                !itemCards ? <h1> No Preview Available</h1> :
+                    itemCards.map((items) => {
+                        return (
+                            <ul key={items.card?.info?.id}>
+                                <li>{items.card?.info?.name} - <b>Rs {(items.card?.info?.price) / 100 || (items.card?.info?.defaultPrice) / 100}</b></li>
+                            </ul>
+                        )
+                    })
+            }
 
         </>
     )

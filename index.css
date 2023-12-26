@@ -9,19 +9,20 @@ img {
 }
 
 .nav-items>ul {
-    margin: 18px 0px;
-}
-
-.nav-items>ul {
+    margin: 28px 0px;
+    padding: 0px 18px;
     display: flex;
     list-style-type: none;
-    padding: 0px 18px;
 }
 
 .nav-items>ul>li {
     margin: 10px 12px;
     font-size: 20px;
+}
 
+.nav-items>ul>li>a {
+    text-decoration: none;
+    color: black;
 }
 
 .res-card {
@@ -54,6 +55,11 @@ img {
     flex-wrap: wrap;
 }
 
+.res-container>a {
+    text-decoration: none;
+    color: black;
+}
+
 .filter-btn {
     margin: 10px 0px;
 }
@@ -75,4 +81,11 @@ img {
     margin: 10px 12px;
     cursor: pointer;
     font-size: 20px;
+}
+
+.user-card {
+    border: 2px solid black;
+    padding: 0px 7px;
+    width: 184px;
+    /* height: 145px; */
 }

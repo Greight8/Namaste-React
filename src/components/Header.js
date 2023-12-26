@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
     // let btnName = "login";
-    console.log("body component rendered");
+    // console.log("body component rendered");
 
     const [newBtnName, setNewBtnName] = useState("login");
 
@@ -15,7 +15,7 @@ const Header = () => {
 
     // 2) with empty dependency array
     useEffect(() => {
-        console.log("useeffect is called");
+        // console.log("useeffect is called");
     }, []);
 
     // 3)  dependency array with a dependency
