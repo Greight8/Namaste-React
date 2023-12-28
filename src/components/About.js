@@ -1,5 +1,5 @@
 import React from "react";
-// import User from "./User";
+import User from "./User";
 import UserClass from "./UserClass";
 import { Component } from "react"
 
@@ -18,11 +18,11 @@ class About extends Component {
         return (
             <div>
                 <h2>This Namaste React web series</h2>
-                {/* <User name="Harry (func)" /> */}
-                <UserClass name="first child" location={"Dehradun"} />
-                <UserClass name="second child" location={"Dehradun"} />
-                <UserClass name="third child" location={"Dehradun"} />
-                <UserClass name="fourth child" location={"Dehradun"} />
+                <User name="Harry (func)" />
+                {/* <UserClass name="first child" location={"Dehradun"} user="akshaymarch7" /> */}
+                {/* <UserClass name="second child" location={"Dehradun"} user="mojombo" /> */}
+                {/* <UserClass name="third child" location={"Dehradun"} /> */}
+                {/* <UserClass name="fourth child" location={"Dehradun"} /> */}
             </div>
         )
     }
