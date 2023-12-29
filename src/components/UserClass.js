@@ -24,33 +24,33 @@ class UserClass extends React.Component {
         let url = "https://api.github.com/users/" + this.props.user;
         let response = await fetch(url);
         let data = await response.json();
-        console.log(data);
+        // console.log(data);
 
         this.setState({
             userInfo: data
         })
 
-        this.timer = setInterval(() => {
-            console.log("after every 1 sec")
-        }, 1000);
+        // this.timer = setInterval(() => {
+        //     console.log("after every 1 sec")
+        // }, 1000);
     }
 
     componentDidUpdate(prevProps, prevState) {
         console.log(this.props.name + " componentDidUpdate");
 
-        if (this.state.count !== prevState.count) {
-            console.log("count changed");
-        }
+        // if (this.state.count !== prevState.count) {
+        //     console.log("count changed");
+        // }
 
-        if (this.state.count2 !== prevState.count2) {
-            console.log("count2 changed");
-        }
+        // if (this.state.count2 !== prevState.count2) {
+        //     console.log("count2 changed");
+        // }
     }
 
     componentWillUnmount() {
         console.log(this.props.name + " componentWillUnmount");
 
-        clearInterval(this.timer)
+        // clearInterval(this.timer)
     }
 
     render() {
@@ -63,7 +63,7 @@ class UserClass extends React.Component {
 
         return (
             <div className="user-card">
-                <img className="user-logo" src={userInfo.avatar_url} alt="img" />
+                {/* <img className="user-logo" src={userInfo.avatar_url} alt="img" /> */}
                 <h2>count:{this.state.count}</h2>
                 <h2>count2:{count2}</h2>
 
@@ -76,9 +76,9 @@ class UserClass extends React.Component {
                     })
                 }}>count increase</button>
 
-                <h2>{userInfo.name}</h2>
+                {/* <h2>{userInfo.name}</h2>
                 <h2>{userInfo.login}</h2>
-                <h3>Location:{userInfo.location}</h3>
+                <h3>Location:{userInfo.location}</h3> */}
                 <h4>Contact: @ak</h4>
             </div>
         )

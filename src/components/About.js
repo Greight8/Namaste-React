@@ -13,14 +13,22 @@ class About extends Component {
         console.log("Parent componentDidMount");
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        console.log("Parent componentDidUpdate");
+    }
+
+    componentWillUnmount() {
+        console.log("Parent componentWillUnmount");
+    }
+
     render() {
         console.log("Parent render")
         return (
             <div>
                 <h2>This Namaste React web series</h2>
-                <User name="Harry (func)" />
-                {/* <UserClass name="first child" location={"Dehradun"} user="akshaymarch7" /> */}
-                {/* <UserClass name="second child" location={"Dehradun"} user="mojombo" /> */}
+                {/* <User name="Harry (func)" /> */}
+                <UserClass name="first child" location={"Dehradun"} user="akshaymarch7" />
+                <UserClass name="second child" location={"Dehradun"} user="mojombo" />
                 {/* <UserClass name="third child" location={"Dehradun"} /> */}
                 {/* <UserClass name="fourth child" location={"Dehradun"} /> */}
             </div>

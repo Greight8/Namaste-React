@@ -1,35 +1,12 @@
-import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { MENU_URL } from "../utils/constants";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-    const [restaurantInfo, setRestaurantInfo] = useState(null)
-
-    console.log(useState());
-
-    // const params = useParams();
-    // console.log(params);
-
     const { resId } = useParams();
 
-    useEffect(() => {
-        fetchMenu();
-    }, []);
-
-    const fetchMenu = async () => {
-        // let url = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6805926&lng=77.4587239&restaurantId=340382&catalog_qa=undefined&submitAction=ENTER"
-        // let url = `${MENU_URL}${resId}&submitAction=ENTER`;
-        let url = MENU_URL + resId + "&catalog_qa=undefined&submitAction=ENTER";
-
-        // let response = await fetch(MENU_URL + resId + "&catalog_qa=undefined&submitAction=ENTER");
-        let response = await fetch(url);
-        let mydata = await response.json();
-
-        console.log(mydata);
-
-        setRestaurantInfo(mydata?.data);
-    }
+    // 1) using our custom hook to get data from live api here :-
+    const restaurantInfo = useRestaurantMenu(resId)
 
     if (restaurantInfo === null) {
         return <Shimmer />
@@ -52,7 +29,7 @@ const RestaurantMenu = () => {
             <h2>itemCards[2]?.card?.info?.name}</h2> */}
 
             {
-                !itemCards ? <h1> No Preview Available</h1> :
+                !itemCards ? <h2> No Menu Available</h2> :
                     itemCards.map((items) => {
                         return (
                             <ul key={items.card?.info?.id}>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useStatusOnline from "../utils/useStatusOnline";
 
 const Header = () => {
     // let btnName = "login";
@@ -23,6 +24,11 @@ const Header = () => {
     //     console.log("useeffect is called");
     // }, [newBtnName]);
 
+
+
+    // 4) importing online status custom hook here :-
+    const myOnlineStatus = useStatusOnline();
+
     return (
         <div className="header">
             <div>
@@ -32,6 +38,9 @@ const Header = () => {
             <div className="nav-items">
                 <ul>
                     <li>
+                        status:{myOnlineStatus ? "✅" : "⭕"}
+                    </li>
+                    <li>
                         <Link to="/">Home</Link>
                     </li>
                     <li>
@@ -39,6 +48,9 @@ const Header = () => {
                     </li>
                     <li>
                         <Link to="/contact">Contact us</Link>
+                    </li>
+                    <li>
+                        <Link to="/grocery">Grocery</Link>
                     </li>
 
                     <li>Cart</li>
