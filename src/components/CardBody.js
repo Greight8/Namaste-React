@@ -29,38 +29,38 @@ const CardBody = () => {
     }
 
 
-    // 3) using conditional rendering
+    // 4) using conditional rendering
 
     return newResList.length === 0 ? <Shimmer /> : (
         <div className="card-body">
-            <div className="search">
+            <div className="flex m-3">
 
-                <input className="search-box" type="text"
+                <input className=" m-4 p-1 border border-solid border-black" type="text"
                     onChange={(e) => {
                         // console.log(e);
                         setSearchText(e.target.value);
                     }} value={searchText} />
 
-                {/* <button className="search-btn" onClick={() => {
+                <button className="px-4 py-2 bg-green-100 m-4" onClick={() => {
                     console.log(searchText);
                     let filteredRes = newResList.filter((items) => {
                         return items.info.name.includes(searchText)
                     })
                     console.log(filteredRes);
                     setFilteredRestaurant(filteredRes);
-                }}>Search</button> */}
+                }}>Search</button>
+
+                <button className="" onClick={() => {
+                    const filteredRes = newResList.filter((items) => {
+                        return items.info.avgRating > 4.2
+                    });
+                    setFilteredRestaurant(filteredRes);
+                }}>
+                    top Restaurant 4.2 +
+                </button>
             </div>
 
-            {/* <button className="filter-btn" onClick={() => {
-                const filteredRes = newResList.filter((items) => {
-                    return items.info.avgRating > 4
-                });
-                setFilteredRestaurant(filteredRes);
-            }}>
-                top Restaurant 4 +
-            </button> */}
-
-            <div className="res-container">
+            <div className="flex flex-wrap justify-center items-center">
                 {
                     newResList.map((items) => {
                         return <Link to={"/restaurants/" + items.info.id} key={items.info.id}>

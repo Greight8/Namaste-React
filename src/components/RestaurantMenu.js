@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
+    console.log("restaurant menu called")
+
     const { resId } = useParams();
 
     // 1) using our custom hook to get data from live api here :-

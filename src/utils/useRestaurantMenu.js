@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { MENU_URL } from "./constants"
 
 const useRestaurantMenu = (resId) => {
+    console.log("restaurant menu hook called");
+
     const [resInfo, setResInfo] = useState(null);
 
     useEffect(() => {

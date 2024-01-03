@@ -9,11 +9,11 @@ const RestaurantCard = (props) => {
     // const { deliveryTime } = resdata?.info?.sla;
 
     return (
-        <div className="res-card" style={{ backgroundColor: "#f0f0f0" }}>
+        <div className="m-4 p-4 w-[250px] rounded-lg  bg-gray-50 hover:bg-gray-400">
 
-            <img className="res-logo" src={`${CDN_URL}${cloudinaryImageId}`} alt="img" />
+            <img className="rounded-lg h-[150px] mx-auto" src={`${CDN_URL}${cloudinaryImageId}`} alt="img" />
 
-            <h3>{name}</h3>
+            <h3 className="font-bold py-4 text-lg">{name}</h3>
             <h3>{cuisines.join(", ")}</h3>
             <h3>{costForTwo}</h3>
             <h3>{avgRating} stars</h3>
