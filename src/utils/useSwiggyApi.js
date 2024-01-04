@@ -12,7 +12,7 @@ const useSwiggyApi = () => {
         let url = SWIGGY_URL;
         let response = await fetch(url);
         let myData = await response.json();
-        // console.log(myData);
+        console.log(myData);
 
         // console.log(myData.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info);
 

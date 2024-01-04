@@ -1,16 +1,16 @@
 const Shimmer = () => {
     return (
         <div className="shimmer-container">
-            <div className="shimmer-card"></div>
-            <div className="shimmer-card"></div>
-            <div className="shimmer-card"></div>
-            <div className="shimmer-card"></div>
-            <div className="shimmer-card"></div>
-            <div className="shimmer-card"></div>
-            <div className="shimmer-card"></div>
-            <div className="shimmer-card"></div>
-            <div className="shimmer-card"></div>
-            <div className="shimmer-card"></div>
+            <div className="bg-gray-200"></div>
+            <div className="bg-gray-200"></div>
+            <div className="bg-gray-200"></div>
+            <div className="bg-gray-200"></div>
+            <div className="bg-gray-200"></div>
+            <div className="bg-gray-200"></div>
+            <div className="bg-gray-200"></div>
+            <div className="bg-gray-200"></div>
+            <div className="bg-gray-200"></div>
+            <div className="bg-gray-200"></div>
         </div>
     )
 }

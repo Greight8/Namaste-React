@@ -9,7 +9,7 @@ const RestaurantCard = (props) => {
     // const { deliveryTime } = resdata?.info?.sla;
 
     return (
-        <div className="m-4 p-4 w-[250px] rounded-lg  bg-gray-50 hover:bg-gray-400">
+        <div className="m-4 p-4 w-[250px] rounded-lg  bg-gray-200 hover:bg-gray-400">
 
             <img className="rounded-lg h-[150px] mx-auto" src={`${CDN_URL}${cloudinaryImageId}`} alt="img" />
 
@@ -21,4 +21,17 @@ const RestaurantCard = (props) => {
         </div>
     )
 }
+
+export const withPromotedLabel = (RestaurantCard) => {
+    // retuning a new component using arrow functions
+    return (props) => {
+        return (
+            <div className="absolute bg-black text-white m-2 p-2 rounded-lg">
+                <label>Promoted</label>
+                <RestaurantCard {...props} />
+            </div>
+        )
+    }
+}
+
 export default RestaurantCard;

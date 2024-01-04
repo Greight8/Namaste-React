@@ -1,5 +1,5 @@
 import { useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useSwiggyApi from "../utils/useSwiggyApi";
@@ -27,6 +27,9 @@ const CardBody = () => {
             <h2>you are offline || Kindly check your internet</h2>
         )
     }
+
+    // 4) importing withPromotedLabel component here :-
+    const RestaurantCardPromoted = withPromotedLabel(RestaurantCard)
 
 
     // 4) using conditional rendering
@@ -64,7 +67,9 @@ const CardBody = () => {
                 {
                     newResList.map((items) => {
                         return <Link to={"/restaurants/" + items.info.id} key={items.info.id}>
-                            <RestaurantCard resdata={items} />
+                            {items.info.promoted ?
+                                <RestaurantCardPromoted resdata={items} /> :
+                                <RestaurantCard resdata={items} />}
                         </Link>
                     })
                 }
