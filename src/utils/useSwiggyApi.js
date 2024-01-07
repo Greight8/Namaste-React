@@ -16,7 +16,7 @@ const useSwiggyApi = () => {
 
         // console.log(myData.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info);
 
-        setResList(myData.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setResList(myData.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
         // setFilteredRestaurant(myData.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
