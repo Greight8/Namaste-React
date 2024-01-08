@@ -14,7 +14,7 @@ const useRestaurantMenu = (resId) => {
         let url = MENU_URL + resId + "&catalog_qa=undefined&submitAction=ENTER";
         let response = await fetch(url);
         let mydata = await response.json();
-        console.log(mydata);
+        // console.log(mydata);
 
         setResInfo(mydata?.data);
     }

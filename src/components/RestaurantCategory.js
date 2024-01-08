@@ -2,7 +2,7 @@ import { useState } from "react";
 import CategoryItemCard from "./CategoryItemCard";
 
 const RestaurantCategory = (props) => {
-    const { data } = props;
+    const { data, showItem, setMyShowIndex } = props;
     const { title, itemCards } = data;
 
     // 1) making state to show / hide CategoryItemCard
@@ -10,8 +10,11 @@ const RestaurantCategory = (props) => {
 
     // 2) making a func. to show / hide CategoryItemCard when we click on it
     const handleShow = () => {
+        setMyShowIndex();
         setShowItemCard(!showItemCard);
     }
+
+    // setMyShowIndex() ? setShowItemCard(!showItemCard) : setShowItemCard(false);
 
     return (
         <div>
@@ -21,7 +24,9 @@ const RestaurantCategory = (props) => {
                     <span className="font-bold text-lg">⬇️</span>
                 </div>
 
-                {showItemCard && <CategoryItemCard items={itemCards} />}
+                {/* {showItemCard && <CategoryItemCard items={itemCards} />} */}
+
+                {showItemCard && showItem && <CategoryItemCard items={itemCards} />}
             </div>
         </div>
 
