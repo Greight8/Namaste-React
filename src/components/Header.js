@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useStatusOnline from "../utils/useStatusOnline";
+import UserContext from "../utils/UserContext";
 
 const Header = () => {
     // let btnName = "login";
@@ -29,6 +30,10 @@ const Header = () => {
     // 4) importing online status custom hook here :-
     const myOnlineStatus = useStatusOnline();
 
+    // 5) using UserContext through context api hook here :-  
+    const data = useContext(UserContext);
+    // console.log(data);
+
     return (
         <div className="flex justify-between  bg-pink-100 shadow-lg">
             <div>
@@ -38,7 +43,7 @@ const Header = () => {
             <div className="flex items-center">
                 <ul className="flex px-4">
                     <li className="px-4">
-                        status:{myOnlineStatus ? "✅" : "⭕"}
+                        status:{myOnlineStatus ? "✔️" : "❎"}
                     </li>
                     <li className="px-4">
                         <Link to="/">Home</Link>
@@ -69,6 +74,10 @@ const Header = () => {
 
                         newBtnName === "login" ? setNewBtnName("logout") : setNewBtnName("login")
                     }} className="login-btn">{newBtnName}</button>
+
+                    <li className="px-4">
+                        {data.loggedInUser}
+                    </li>
                 </ul>
             </div>
         </div>

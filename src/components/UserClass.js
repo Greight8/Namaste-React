@@ -3,7 +3,7 @@ import React from "react";
 class UserClass extends React.Component {
     constructor(props) {
         super(props);
-        console.log(this.props.name + " constructor");
+        // console.log(this.props.name + " constructor");
 
         // console.log(props);
 
@@ -19,7 +19,7 @@ class UserClass extends React.Component {
     }
 
     async componentDidMount() {
-        console.log(this.props.name + " componentDidMount");
+        // console.log(this.props.name + " componentDidMount");
 
         let url = "https://api.github.com/users/" + this.props.user;
         let response = await fetch(url);
@@ -36,7 +36,7 @@ class UserClass extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log(this.props.name + " componentDidUpdate");
+        // console.log(this.props.name + " componentDidUpdate");
 
         // if (this.state.count !== prevState.count) {
         //     console.log("count changed");
@@ -48,13 +48,13 @@ class UserClass extends React.Component {
     }
 
     componentWillUnmount() {
-        console.log(this.props.name + " componentWillUnmount");
+        // console.log(this.props.name + " componentWillUnmount");
 
         // clearInterval(this.timer)
     }
 
     render() {
-        console.log(this.props.name + " render");
+        // console.log(this.props.name + " render");
 
         const { location } = this.props;
 

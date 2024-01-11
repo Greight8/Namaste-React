@@ -13,8 +13,7 @@ const RestaurantCategory = (props) => {
         setMyShowIndex();
         setShowItemCard(!showItemCard);
     }
-
-    // setMyShowIndex() ? setShowItemCard(!showItemCard) : setShowItemCard(false);
+    // setMyShowIndex() ? setShowItemCard(true) : setShowItemCard(false);
 
     return (
         <div>

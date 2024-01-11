@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useSwiggyApi from "../utils/useSwiggyApi";
 import useStatusOnline from "../utils/useStatusOnline";
+import UserContext from "../utils/UserContext";
 
 const CardBody = () => {
     // console.log("cardBody rendered")
@@ -31,6 +32,9 @@ const CardBody = () => {
     // 4) importing withPromotedLabel component here :-
     const RestaurantCardPromoted = withPromotedLabel(RestaurantCard)
 
+    // 5) using setUserName through useContext hook 
+    const { loggedInUser, setUserName } = useContext(UserContext)
+
 
     // 4) using conditional rendering
 
@@ -53,14 +57,24 @@ const CardBody = () => {
                     setFilteredRestaurant(filteredRes);
                 }}>Search</button>
 
-                <button className="" onClick={() => {
-                    const filteredRes = newResList.filter((items) => {
-                        return items.info.avgRating > 4.2
-                    });
-                    setFilteredRestaurant(filteredRes);
-                }}>
-                    top Restaurant 4.2 +
-                </button>
+                <div className="m-4 p-4 flex items-center">
+                    <button className="" onClick={() => {
+                        const filteredRes = newResList.filter((items) => {
+                            return items.info.avgRating > 4.2
+                        });
+                        setFilteredRestaurant(filteredRes);
+                    }}>
+                        top Restaurant 4.2 +
+                    </button>
+                </div>
+
+                <div className="m-4 p-4 flex items-center">
+                    <label>search</label>
+                    <input className="border border-black p-2" value={loggedInUser} onChange={(e) => {
+                        setUserName(e.target.value)
+                    }} />
+                </div>
+
             </div>
 
             <div className="flex flex-wrap justify-center items-center">

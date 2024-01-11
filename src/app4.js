@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import CardBody from "./components/CardBody";
@@ -8,7 +8,9 @@ import Error from "./components/Error"
 // import Grocery from "./components/Grocery";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
+import UserContext from "./utils/UserContext";
 
+// 2) doing lazy loading / dynamic bundling here :-
 const Grocery = lazy(() => {
     return import("./components/Grocery");
 })
@@ -16,11 +18,28 @@ const Grocery = lazy(() => {
 // 1) 1st component AppLayout :- here we will put all other components
 const AppLayout = () => {
     // console.log(<CardBody />);
+
+    // 3) making a state to update name in our UserContext
+    const [userName, setUserName] = useState()
+
+    // 3) let us assume we have login/logout feature and we are getting user name from our dummy data
+    useEffect(() => {
+        const data = {
+            name: "akshay saini"
+        }
+        setUserName(data.name);
+    }, [])
+
     return (
-        <div className="app">
-            <Header />
-            <Outlet />
-        </div>
+        <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+            <div className="app">
+                <UserContext.Provider value={{ loggedInUser: "elon musk" }} >
+                    <Header />
+                </UserContext.Provider>
+
+                <Outlet />
+            </div>
+        </UserContext.Provider>
     )
 }
 

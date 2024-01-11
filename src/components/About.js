@@ -1,28 +1,29 @@
 import React from "react";
-import User from "./User";
+// import User from "./User";
 import UserClass from "./UserClass";
 import { Component } from "react"
+import UserContext from "../utils/UserContext";
 
 class About extends Component {
     constructor() {
         super();
-        console.log("Parent Constructor");
+        // console.log("Parent Constructor");
     }
 
     componentDidMount() {
-        console.log("Parent componentDidMount");
+        // console.log("Parent componentDidMount");
     }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log("Parent componentDidUpdate");
+        // console.log("Parent componentDidUpdate");
     }
 
     componentWillUnmount() {
-        console.log("Parent componentWillUnmount");
+        // console.log("Parent componentWillUnmount");
     }
 
     render() {
-        console.log("Parent render")
+        // console.log("Parent render")
         return (
             <div>
                 <h2>This Namaste React web series</h2>
@@ -31,7 +32,16 @@ class About extends Component {
                 <UserClass name="second child" location={"Dehradun"} user="mojombo" />
                 {/* <UserClass name="third child" location={"Dehradun"} /> */}
                 {/* <UserClass name="fourth child" location={"Dehradun"} /> */}
-            </div>
+
+                <UserContext.Consumer>
+                    {
+                        (data) => {
+                            console.log(data)
+                            return <h1> {data.loggedInUser}</h1>
+                        }
+                    }
+                </UserContext.Consumer>
+            </div >
         )
     }
 }
