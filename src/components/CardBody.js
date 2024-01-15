@@ -42,13 +42,13 @@ const CardBody = () => {
         <div className="card-body">
             <div className="flex m-3">
 
-                <input className=" m-4 p-1 border border-solid border-black" type="text"
+                <input className=" m-8 p-1 border border-solid border-black" type="text"
                     onChange={(e) => {
                         // console.log(e);
                         setSearchText(e.target.value);
                     }} value={searchText} />
 
-                <button className="px-4 py-2 bg-green-100 m-4" onClick={() => {
+                <button className="px-2 bg-green-100 m-4" onClick={() => {
                     console.log(searchText);
                     let filteredRes = newResList.filter((items) => {
                         return items.info.name.includes(searchText)

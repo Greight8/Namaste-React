@@ -9,6 +9,8 @@ import Error from "./components/Error"
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 // 2) doing lazy loading / dynamic bundling here :-
 const Grocery = lazy(() => {
@@ -31,15 +33,17 @@ const AppLayout = () => {
     }, [])
 
     return (
-        <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
-            <div className="app">
-                <UserContext.Provider value={{ loggedInUser: "elon musk" }} >
-                    <Header />
-                </UserContext.Provider>
+        <Provider store={appStore}>
+            <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+                <div className="app">
+                    <UserContext.Provider value={{ loggedInUser: "elon musk" }} >
+                        <Header />
+                    </UserContext.Provider>
 
-                <Outlet />
-            </div>
-        </UserContext.Provider>
+                    <Outlet />
+                </div>
+            </UserContext.Provider>
+        </Provider>
     )
 }
 
