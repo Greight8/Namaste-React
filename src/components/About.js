@@ -7,41 +7,43 @@ import UserContext from "../utils/UserContext";
 class About extends Component {
     constructor() {
         super();
-        // console.log("Parent Constructor");
+        console.log("Parent Constructor");
     }
 
     componentDidMount() {
-        // console.log("Parent componentDidMount");
+        console.log("Parent componentDidMount");
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        // console.log("Parent componentDidUpdate");
-    }
+    // componentDidUpdate(prevProps, prevState) {
+    //     // console.log("Parent componentDidUpdate");
+    // }
 
-    componentWillUnmount() {
-        // console.log("Parent componentWillUnmount");
-    }
+    // componentWillUnmount() {
+    //     console.log("Parent componentWillUnmount");
+    // }
 
     render() {
-        // console.log("Parent render")
+        console.log("Parent render")
         return (
-            <div>
-                <h2>This Namaste React web series</h2>
-                {/* <User name="Harry (func)" /> */}
-                <UserClass name="first child" location={"Dehradun"} user="akshaymarch7" />
-                <UserClass name="second child" location={"Dehradun"} user="mojombo" />
-                {/* <UserClass name="third child" location={"Dehradun"} /> */}
-                {/* <UserClass name="fourth child" location={"Dehradun"} /> */}
+            <>
+                <h2 className="m-3 flex justify-center items-center">Welcome to Ziggy about page</h2>
+                <div className="flex flex-wrap justify-center items-center">
+                    {/* <User name="Harry (func)" /> */}
+                    <UserClass name="first child" location={"Dehradun"} user="akshaymarch7" />
+                    <UserClass name="second child" location={"Dehradun"} user="mojombo" />
+                    {/* <UserClass name="third child" location={"Dehradun"} user="Greight8" /> */}
+                    {/* <UserClass name="fourth child" location={"Dehradun"} /> */}
+                </div >
 
                 <UserContext.Consumer>
                     {
                         (data) => {
-                            console.log(data)
-                            return <h1> {data.loggedInUser}</h1>
+                            // console.log(data)
+                            return <h1 className="m-3 flex flex-wrap justify-center items-center"> {data.loggedInUser}</h1>
                         }
                     }
                 </UserContext.Consumer>
-            </div >
+            </>
         )
     }
 }

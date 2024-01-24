@@ -9,10 +9,11 @@ const CategoryItemCard = ({ items }) => {
     const dispatch = useDispatch()
 
     // 2) making handleAddItem func to add data into items array in cartSlice
-    const handleAddItem = () => {
+    const handleAddItem = (item) => {
         // dispatch an action
         // pizza = action.payload
-        dispatch(addItem("pizza"));
+        // dispatch(addItem("pizza"));
+        dispatch(addItem(item));
     }
 
     return <div>
@@ -31,7 +32,16 @@ const CategoryItemCard = ({ items }) => {
 
                     <div className="w-3/12 p-4">
                         <div className="absolute">
-                            <button className="p-2 mx-16 bg-black text-white shadow-lg rounded-lg" onClick={handleAddItem}>add +</button>
+                            <button className="p-2 mx-16 bg-black text-white shadow-lg rounded-lg"
+                                // onClick={handleAddItem}
+                                // onClick={handleAddItem(item)}
+                                onClick={() => {
+                                    handleAddItem(item)
+                                }
+                                }
+                            >
+                                add +
+                            </button>
                         </div>
                         <img src={CDN_URL + item?.card?.info?.imageId} className="w-full rounded-lg" />
                     </div>

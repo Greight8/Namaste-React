@@ -41,6 +41,9 @@ const Header = () => {
     })
     console.log(cartItem)
 
+    // 6) never do this way , never subscribe to the whole store , only subscribe to a particular part of store , this will hamper our performance
+
+
     return (
         <div className="flex justify-between  bg-pink-100 shadow-lg">
             <div>
@@ -65,7 +68,7 @@ const Header = () => {
                         <Link to="/grocery">Grocery</Link>
                     </li>
                     <li className="px-4 font-bold">
-                        Cart ({cartItem.length} items)
+                        <Link to="/cart">Cart ({cartItem.length} items)</Link>
                     </li>
 
                     <button onClick={() => {

@@ -11,6 +11,7 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom"
 import UserContext from "./utils/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 // 2) doing lazy loading / dynamic bundling here :-
 const Grocery = lazy(() => {
@@ -75,6 +76,10 @@ const appRouter = createBrowserRouter(
                     {
                         path: "/restaurants/:resId",
                         element: <RestaurantMenu />
+                    },
+                    {
+                        path: "/cart",
+                        element: <Cart />
                     },
                 ],
             errorElement: <Error />

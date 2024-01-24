@@ -3,12 +3,12 @@ import ReactDOM from "react-dom/client";
 
 // 1) making a h1 tag and root element :-
 
-// const heading = React.createElement("h1", { id: "heading" }, "hi react");
+const heading = React.createElement("h1", { id: "heading" }, "hi react");
 
-// console.log(heading);
+console.log(heading);
 
-// const root = ReactDOM.createRoot(document.getElementById("root"));
-// root.render(heading);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(heading);
 
 
 
@@ -82,24 +82,24 @@ import ReactDOM from "react-dom/client";
 </div> */}
 
 
-const parent = React.createElement("div", { id: "parent" },
-    [
-        React.createElement("div", { id: "child" },
-            [
-                React.createElement("h2", {}, "hello h2"),
-                React.createElement("h3", {}, "hello h3")
-            ]
-        ),
-        React.createElement("div", { id: "child2" },
-            [
-                React.createElement("h2", {}, "hello h2 again"),
-                React.createElement("h3", {}, "hello h3 again")
-            ]
-        )
-    ]
-);
+// const parent = React.createElement("div", { id: "parent" },
+//     [
+//         React.createElement("div", { id: "child" },
+//             [
+//                 React.createElement("h2", {}, "hello h2"),
+//                 React.createElement("h3", {}, "hello h3")
+//             ]
+//         ),
+//         React.createElement("div", { id: "child2" },
+//             [
+//                 React.createElement("h2", {}, "hello h2 again"),
+//                 React.createElement("h3", {}, "hello h3 again")
+//             ]
+//         )
+//     ]
+// );
 
-console.log(parent);
+// console.log(parent);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+// const root = ReactDOM.createRoot(document.getElementById("root"));
+// root.render(parent);

@@ -3,7 +3,7 @@ import React from "react";
 class UserClass extends React.Component {
     constructor(props) {
         super(props);
-        // console.log(this.props.name + " constructor");
+        console.log(this.props.name + " constructor");
 
         // console.log(props);
 
@@ -19,7 +19,7 @@ class UserClass extends React.Component {
     }
 
     async componentDidMount() {
-        // console.log(this.props.name + " componentDidMount");
+        console.log(this.props.name + " componentDidMount");
 
         let url = "https://api.github.com/users/" + this.props.user;
         let response = await fetch(url);
@@ -29,6 +29,7 @@ class UserClass extends React.Component {
         this.setState({
             userInfo: data
         })
+        // console.log(this.state.userInfo)
 
         // this.timer = setInterval(() => {
         //     console.log("after every 1 sec")
@@ -36,7 +37,8 @@ class UserClass extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        // console.log(this.props.name + " componentDidUpdate");
+        console.log(this.props.name + " componentDidUpdate called bec state is updated inside cdm");
+        // console.log(this.state.userInfo)
 
         // if (this.state.count !== prevState.count) {
         //     console.log("count changed");
@@ -54,7 +56,7 @@ class UserClass extends React.Component {
     }
 
     render() {
-        // console.log(this.props.name + " render");
+        console.log(this.props.name + " render");
 
         const { location } = this.props;
 
@@ -62,12 +64,14 @@ class UserClass extends React.Component {
         const { count2, userInfo } = this.state;
 
         return (
-            <div className="user-card">
-                {/* <img className="user-logo" src={userInfo.avatar_url} alt="img" /> */}
+            <div className="m-4 p-4 w-[250px] rounded-lg  bg-gray-200 hover:bg-gray-400">
+                <img className="rounded-lg h-[150px] mx-auto" src={userInfo.avatar_url} alt="img" />
+                <h2>{userInfo.name}</h2>
                 <h2>count:{this.state.count}</h2>
                 <h2>count2:{count2}</h2>
 
-                <button onClick={() => {
+                <button className="bg-blue-300 mt-2 mb-2 p-2 rounded-lg" onClick={() => {
+                    // 1) never do this , it will not work in class based components
                     // this.state.count = this.state.count + 1;
 
                     this.setState({

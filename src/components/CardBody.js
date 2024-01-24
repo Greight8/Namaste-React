@@ -69,7 +69,7 @@ const CardBody = () => {
                 </div>
 
                 <div className="m-4 p-4 flex items-center">
-                    <label>search</label>
+                    <label className="mr-2">search</label>
                     <input className="border border-black p-2" value={loggedInUser} onChange={(e) => {
                         setUserName(e.target.value)
                     }} />
