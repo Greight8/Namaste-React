@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext, useEffect, useState } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
@@ -39,7 +40,7 @@ const Header = () => {
     const cartItem = useSelector((store) => {
         return store.cart.items
     })
-    console.log(cartItem)
+    // console.log(cartItem)
 
     // 6) never do this way , never subscribe to the whole store , only subscribe to a particular part of store , this will hamper our performance
 

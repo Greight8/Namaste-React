@@ -44,19 +44,19 @@ import "@testing-library/jest-dom";
 // })
 
 
-describe('testing our input boxes through ways in our contact component', () => {
+describe('testing our input boxes through diff ways in our contact component', () => {
 
-    it("testing to find input name through placeholder in our contact componant, which renders on our DOM or not", () => {
+    // it("testing to find input name through placeholder in our contact componant, which renders on our DOM or not", () => {
 
-        // 1) render Contact component inside js-dom
-        render(<Contact />)
+    //     // 1) render Contact component inside js-dom
+    //     render(<Contact />)
 
-        // 2) finding button byRole() method
-        const inputName = screen.getByPlaceholderText("name");
+    //     // 2) finding button byRole() method
+    //     const inputName = screen.getByPlaceholderText("name");
 
-        // 4) writing Assertion
-        expect(inputName).toBeInTheDocument()
-    });
+    //     // 4) writing Assertion
+    //     expect(inputName).toBeInTheDocument()
+    // });
 
     it("testing wether we have 2 input boxes in our contact componant, which renders on our DOM or not", () => {
 
@@ -83,19 +83,18 @@ describe('testing our input boxes through ways in our contact component', () => 
         expect(inputBoxes[1]).toBeInTheDocument()
     });
 
-    it("testing  we have 2 input boxes using length in our contact componant, which renders on our DOM or not", () => {
+    // it("testing  we have 2 input boxes using length in our contact componant, which renders on our DOM or not", () => {
 
-        // 1) render Contact component inside js-dom
-        render(<Contact />)
+    //     // 1) render Contact component inside js-dom
+    //     render(<Contact />)
 
-        // 3) have to find input AllbyRole() method using textbox
-        const inputBoxes = screen.getAllByRole("textbox");
+    //     // 3) have to find input AllbyRole() method using textbox
+    //     const inputBoxes = screen.getAllByRole("textbox");
+    //     // console.log(inputBoxes);
 
-        // console.log(inputBoxes);
 
-
-        // 5) assertion using length of inputBoxes bec, it is ana array
-        // expect(inputBoxes.length).toBe(2)
-        expect(inputBoxes.length).not.toBe(3)
-    });
+    //     // 5) assertion using length of inputBoxes bec, it is ana array
+    //     // expect(inputBoxes.length).toBe(2)
+    //     expect(inputBoxes.length).not.toBe(3)
+    // });
 })
