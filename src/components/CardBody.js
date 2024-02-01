@@ -82,8 +82,8 @@ const CardBody = () => {
                     newResList.map((items) => {
                         return <Link to={"/restaurants/" + items.info.id} key={items.info.id}>
                             {items.info.promoted ?
-                                <RestaurantCardPromoted resdata={items} /> :
-                                <RestaurantCard resdata={items} />}
+                                <RestaurantCardPromoted resdata={items.info} /> :
+                                <RestaurantCard resdata={items.info} />}
                         </Link>
                     })
                 }
