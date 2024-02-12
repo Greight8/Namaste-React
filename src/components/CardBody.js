@@ -63,14 +63,14 @@ const CardBody = () => {
         <div>
             <div className="flex justify-center items-center mt-3">
 
-                <input data-testid="searchInput" className="  p-1 border border-solid border-black" type="text"
+                <input data-testid="searchInput" className="p-1 border border-solid border-black" type="text"
                     onChange={(e) => {
                         // console.log(e);
                         setSearchText(e.target.value);
                     }} value={searchText} />
 
                 <button className="px-2 bg-green-100 m-3 h-10 rounded-lg" onClick={() => {
-                    console.log(searchText);
+                    // console.log(searchText);
 
                     function capitalizeFirstLetter(string) {
                         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -83,8 +83,8 @@ const CardBody = () => {
                     setFilteredRestaurant(filteredRes);
                 }}>Search</button>
 
-                <div className="m-7 p-4">
-                    <button className="" onClick={() => {
+                <div className="p-4">
+                    <button data-testid="topRestaurant" className="" onClick={() => {
                         const filteredRes = newResList.filter((items) => {
                             return items.info.avgRating > 4.2
                         });

@@ -15,6 +15,17 @@ import "@testing-library/jest-dom";
 //         // 3) writing Assertion
 //         expect(heading).toBeInTheDocument()
 //     });
+
+//     test("testing wether heading in our contact component using text, renders on our DOM or not", () => {
+//         // 1) render Contact component inside js-dom
+//         render(<Contact />)
+
+//         // 2) finding heading byRole() method
+//         const heading = screen.getByText("Contact us on Ziggy@gmail.com");
+
+//         // 3) writing Assertion
+//         expect(heading).toBeInTheDocument()
+//     });
 // })
 
 

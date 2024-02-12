@@ -55,3 +55,28 @@ describe('doing integration testing of our input-box search feature', () => {
         expect(cardsAfterSearch.length).toBe(2);
     })
 })
+
+describe('testing top Restaurant 4.2 + feature', () => {
+
+    it("should render top Restaurant 4.2 + restaurant cards", async () => {
+        await act(async () => {
+            render(
+                <BrowserRouter>
+                    <CardBody />
+                </BrowserRouter>
+            )
+        })
+
+        //     const cardBeforeSearch = screen.findAllByTestId("resCard");
+        //     expect((await cardBeforeSearch).length).toBe(20);
+
+        const topRestaurant = screen.getByRole("button", { name: "top Restaurant 4.2 +" });
+        expect(topRestaurant).toBeInTheDocument();
+        // console.log(topRestaurant);
+
+        fireEvent.click(topRestaurant)
+
+        const cardsAfterSearch = screen.findAllByTestId("resCard");
+        expect((await cardsAfterSearch).length).toBe(11)
+    })
+})

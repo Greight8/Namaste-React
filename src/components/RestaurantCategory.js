@@ -1,3 +1,4 @@
+import React from "react"
 import { useState } from "react";
 import CategoryItemCard from "./CategoryItemCard";
 
@@ -24,12 +25,11 @@ const RestaurantCategory = (props) => {
                 </div>
 
                 {/* {showItemCard && <CategoryItemCard items={itemCards} />} */}
-
                 {showItemCard && showItem && <CategoryItemCard items={itemCards} />}
+
+                {/* {showItem && <CategoryItemCard items={itemCards} />} */}
             </div>
         </div>
-
-
     )
 }
 

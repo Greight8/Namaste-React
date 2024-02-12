@@ -1,3 +1,4 @@
+import React from "react"
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
@@ -10,7 +11,7 @@ const RestaurantMenu = () => {
     const { resId } = useParams();
 
     // 5) making a state to only expand one accordian ata a time
-    const [showIndex, setShowIndex] = useState(null)
+    const [showIndex, setShowIndex] = useState(1)
 
     // 1) older way to get only one heading (recomended) from itemcard 
     // const { itemCards } = restaurantInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
@@ -38,7 +39,7 @@ const RestaurantMenu = () => {
     return (
         <>
             <div className="text-center">
-                <h1 className="font-bold my-6 text-2xl">{name}</h1>
+                <h1 data-testid="heading" className="font-bold my-6 text-2xl">{name}</h1>
                 <p className="font-bold text-lg">{cuisines.join(", ")} - {costForTwoMessage}</p>
 
                 {/* <h1>Menu</h1> */}
